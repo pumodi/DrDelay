@@ -46,9 +46,30 @@
 
 - (void)tempoConvert:(id)sender
 {
+    [tempoTextBox resignFirstResponder];
     // Basic Tempo Calculation
     double tempo = [tempoTextBox.text doubleValue];
     double ms = floor(60000 / tempo);
+    
+    if (tempo == 0) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tempo cannot be 0"
+                                                          message:@"Please use a number greater than 0"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+
+        
+    }
+    
+    if (tempo > 60000) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tempo cannot be greater than 60,000"
+                                                          message:@"Please use a smaller number"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
     
     // Checks the Note Value as defined in UISegmentController. If value other than 1/4 is selected divide by that value.
     if (tempo > 0) {
@@ -94,35 +115,31 @@
             [noteImage2 setImage:[UIImage imageNamed:@"sixtyFourth.png"] forState:UIControlStateNormal];
 
         }
+    
+        // Used to calculate values for Triplets, Fivetuplets and Dotted notes
+        double msTriple = floor(ms / 3);
+        double msFifth = floor(ms / 5);
+        double msDot = floor(ms * 1.5);
+        double tripleVal = 3;
+        double fiveVal = 5;
         
-    }
-    if (tempo == 0) {
+        [tempoTextBox resignFirstResponder];
         
+        // Convert data to strings & push data to the proper fields
+        NSString *convertResult = [[NSString alloc] initWithFormat: @"%.0f", ms];
+        NSString *convertResult3 = [[NSString alloc] initWithFormat: @"%.0f", msTriple];
+        NSString *convertResult5 = [[NSString alloc] initWithFormat: @"%.0f", msFifth];
+        NSString *convertResultDot = [[NSString alloc] initWithFormat: @"%.0f", msDot];
+        NSString *tripleConvert = [[NSString alloc] initWithFormat:@"%.0f", tripleVal];
+        NSString *fiveConvert = [[NSString alloc] initWithFormat:@"%.0f", fiveVal];
+        calcResult.text = convertResult;
+        calcResult3.text = convertResult3;
+        calcResult5.text = convertResult5;
+        calcResultDot.text = convertResultDot;
+        triplet.text = tripleConvert;
+        fiveTuplet.text = fiveConvert;
+        [dotImage setImage:[UIImage imageNamed:@"dot.png"] forState:UIControlStateNormal];
     }
-    
-    // Used to calculate values for Triplets, Fivetuplets and Dotted notes
-    double msTriple = floor(ms / 3);
-    double msFifth = floor(ms / 5);
-    double msDot = floor(ms * 1.5);
-    double tripleVal = 3;
-    double fiveVal = 5;
-    
-    [tempoTextBox resignFirstResponder];
-    
-    // Convert data to strings & push data to the proper fields
-    NSString *convertResult = [[NSString alloc] initWithFormat: @"%.0f", ms];
-    NSString *convertResult3 = [[NSString alloc] initWithFormat: @"%.0f", msTriple];
-    NSString *convertResult5 = [[NSString alloc] initWithFormat: @"%.0f", msFifth];
-    NSString *convertResultDot = [[NSString alloc] initWithFormat: @"%.0f", msDot];
-    NSString *tripleConvert = [[NSString alloc] initWithFormat:@"%.0f", tripleVal];
-    NSString *fiveConvert = [[NSString alloc] initWithFormat:@"%.0f", fiveVal];
-    calcResult.text = convertResult;
-    calcResult3.text = convertResult3;
-    calcResult5.text = convertResult5;
-    calcResultDot.text = convertResultDot;
-    triplet.text = tripleConvert;
-    fiveTuplet.text = fiveConvert;
-    [dotImage setImage:[UIImage imageNamed:@"dot.png"] forState:UIControlStateNormal];
 }
 
 - (void)clearFields:(id)sender {
@@ -140,7 +157,7 @@
 }
 
 - (void)textFieldReturn:(id)sender {
-        [tempoTextBox resignFirstResponder];
+    [tempoTextBox resignFirstResponder];
 }
 
 - (void)dismissKeyboard:(id)sender {
