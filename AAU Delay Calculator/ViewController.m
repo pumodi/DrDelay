@@ -43,7 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (void)tempoConvert:(id)sender
 {
     [tempoTextBox resignFirstResponder];
@@ -51,15 +50,13 @@
     double tempo = [tempoTextBox.text doubleValue];
     double ms = floor(60000 / tempo);
     
-    if (tempo == 0) {
+    if (tempo == 0 || tempo < 0) {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tempo cannot be 0"
                                                           message:@"Please use a number greater than 0"
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         [message show];
-
-        
     }
     
     if (tempo > 60000) {
@@ -72,74 +69,70 @@
     }
     
     // Checks the Note Value as defined in UISegmentController. If value other than 1/4 is selected divide by that value.
-    if (tempo > 0) {
-        if (noteValues.selectedSegmentIndex == 0){
-            ms = (ms * 4);
-            [noteImage setImage:[UIImage imageNamed:@"whole.png"] forState:UIControlStateNormal];
-            [noteImage2 setImage:[UIImage imageNamed:@"whole.png"] forState:UIControlStateNormal];
-
+    else {
+        switch (noteValues.selectedSegmentIndex)
+        {
+            case 0:
+                ms = (ms * 4);
+                [noteImage setImage:[UIImage imageNamed:@"whole.png"] forState:UIControlStateNormal];
+                [noteImage2 setImage:[UIImage imageNamed:@"whole.png"] forState:UIControlStateNormal];
+                break;
+            case 1:
+                ms = (ms * 2);
+                [noteImage setImage:[UIImage imageNamed:@"half.png"] forState:UIControlStateNormal];
+                [noteImage2 setImage:[UIImage imageNamed:@"half.png"] forState:UIControlStateNormal];
+                break;
+            case 2:
+                ms = (ms * 1);
+                [noteImage setImage:[UIImage imageNamed:@"quarter.psd"] forState:UIControlStateNormal];
+                [noteImage2 setImage:[UIImage imageNamed:@"quarter.psd"] forState:UIControlStateNormal];
+                break;
+            case 3:
+                ms = (ms / 2);
+                [noteImage setImage:[UIImage imageNamed:@"eighth.png"] forState:UIControlStateNormal];
+                [noteImage2 setImage:[UIImage imageNamed:@"eighth.png"] forState:UIControlStateNormal];
+                break;
+            case 4:
+                ms = (ms / 4);
+                [noteImage setImage:[UIImage imageNamed:@"sixteenth.png"] forState:UIControlStateNormal];
+                [noteImage2 setImage:[UIImage imageNamed:@"sixteenth.png"] forState:UIControlStateNormal];
+                break;
+            case 5:
+                ms = (ms / 8);
+                [noteImage setImage:[UIImage imageNamed:@"thirtySecond_.png"] forState:UIControlStateNormal];
+                [noteImage2 setImage:[UIImage imageNamed:@"thirtySecond_.png"] forState:UIControlStateNormal];
+                break;
+            case 6:
+                ms = (ms / 16);
+                [noteImage setImage:[UIImage imageNamed:@"sixtyFourth.png"] forState:UIControlStateNormal];
+                [noteImage2 setImage:[UIImage imageNamed:@"sixtyFourth.png"] forState:UIControlStateNormal];
+                break;
         }
-        if (noteValues.selectedSegmentIndex == 1){
-            ms = (ms * 2);
-            [noteImage setImage:[UIImage imageNamed:@"half.png"] forState:UIControlStateNormal];
-            [noteImage2 setImage:[UIImage imageNamed:@"half.png"] forState:UIControlStateNormal];
-
-        }
-        if (noteValues.selectedSegmentIndex == 2){
-            ms = (ms * 1);
-            [noteImage setImage:[UIImage imageNamed:@"quarter.psd"] forState:UIControlStateNormal];
-            [noteImage2 setImage:[UIImage imageNamed:@"quarter.psd"] forState:UIControlStateNormal];
-
-        }
-        if (noteValues.selectedSegmentIndex == 3){
-            ms = (ms / 2);
-            [noteImage setImage:[UIImage imageNamed:@"eighth.png"] forState:UIControlStateNormal];
-            [noteImage2 setImage:[UIImage imageNamed:@"eighth.png"] forState:UIControlStateNormal];
-
-        }
-        if (noteValues.selectedSegmentIndex == 4){
-            ms = (ms / 4);
-            [noteImage setImage:[UIImage imageNamed:@"sixteenth.png"] forState:UIControlStateNormal];
-            [noteImage2 setImage:[UIImage imageNamed:@"sixteenth.png"] forState:UIControlStateNormal];
-
-        }
-        if (noteValues.selectedSegmentIndex == 5){
-            ms = (ms / 8);
-            [noteImage setImage:[UIImage imageNamed:@"thirtySecond_.png"] forState:UIControlStateNormal];
-            [noteImage2 setImage:[UIImage imageNamed:@"thirtySecond_.png"] forState:UIControlStateNormal];
-
-        }
-        if (noteValues.selectedSegmentIndex == 6){
-            ms = (ms / 16);
-            [noteImage setImage:[UIImage imageNamed:@"sixtyFourth.png"] forState:UIControlStateNormal];
-            [noteImage2 setImage:[UIImage imageNamed:@"sixtyFourth.png"] forState:UIControlStateNormal];
-
-        }
-    
-        // Used to calculate values for Triplets, Fivetuplets and Dotted notes
-        double msTriple = floor(ms / 3);
-        double msFifth = floor(ms / 5);
-        double msDot = floor(ms * 1.5);
-        double tripleVal = 3;
-        double fiveVal = 5;
-        
-        [tempoTextBox resignFirstResponder];
-        
-        // Convert data to strings & push data to the proper fields
-        NSString *convertResult = [[NSString alloc] initWithFormat: @"%.0f", ms];
-        NSString *convertResult3 = [[NSString alloc] initWithFormat: @"%.0f", msTriple];
-        NSString *convertResult5 = [[NSString alloc] initWithFormat: @"%.0f", msFifth];
-        NSString *convertResultDot = [[NSString alloc] initWithFormat: @"%.0f", msDot];
-        NSString *tripleConvert = [[NSString alloc] initWithFormat:@"%.0f", tripleVal];
-        NSString *fiveConvert = [[NSString alloc] initWithFormat:@"%.0f", fiveVal];
-        calcResult.text = convertResult;
-        calcResult3.text = convertResult3;
-        calcResult5.text = convertResult5;
-        calcResultDot.text = convertResultDot;
-        triplet.text = tripleConvert;
-        fiveTuplet.text = fiveConvert;
-        [dotImage setImage:[UIImage imageNamed:@"dot.png"] forState:UIControlStateNormal];
     }
+    
+    // Used to calculate values for Triplets, Fivetuplets and Dotted notes
+    double msTriple = floor(ms / 3);
+    double msFifth = floor(ms / 5);
+    double msDot = floor(ms * 1.5);
+    double tripleVal = 3;
+    double fiveVal = 5;
+    
+    [tempoTextBox resignFirstResponder];
+    
+    // Convert data to strings & push data to the proper fields
+    NSString *convertResult = [[NSString alloc] initWithFormat: @"%.0f", ms];
+    NSString *convertResult3 = [[NSString alloc] initWithFormat: @"%.0f", msTriple];
+    NSString *convertResult5 = [[NSString alloc] initWithFormat: @"%.0f", msFifth];
+    NSString *convertResultDot = [[NSString alloc] initWithFormat: @"%.0f", msDot];
+    NSString *tripleConvert = [[NSString alloc] initWithFormat:@"%.0f", tripleVal];
+    NSString *fiveConvert = [[NSString alloc] initWithFormat:@"%.0f", fiveVal];
+    calcResult.text = convertResult;
+    calcResult3.text = convertResult3;
+    calcResult5.text = convertResult5;
+    calcResultDot.text = convertResultDot;
+    triplet.text = tripleConvert;
+    fiveTuplet.text = fiveConvert;
+    [dotImage setImage:[UIImage imageNamed:@"dot.png"] forState:UIControlStateNormal];
 }
 
 - (void)clearFields:(id)sender {
