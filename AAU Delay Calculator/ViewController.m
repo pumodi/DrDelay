@@ -18,7 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
@@ -26,7 +25,6 @@
     [super viewDidUnload];
     
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
     self.tempoTextBox = nil;
     self.calcResult = nil;
     self.calcResult3 = nil;
@@ -40,36 +38,26 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-- (void)tempoConvert:(id)sender
-{
+- (void)tempoConvert:(id)sender {
     [tempoTextBox resignFirstResponder];
-    // Basic Tempo Calculation
     double tempo = [tempoTextBox.text doubleValue];
     double ms = floor(60000 / tempo);
+    double msTriple = floor(ms / 3);
+    double msFifth = floor(ms / 5);
+    double msDot = floor(ms * 1.5);
+    double tripleVal = 3;
+    double fiveVal = 5;
+    NSString *convertResult = [[NSString alloc] initWithFormat: @"%.0f", ms];
+    NSString *convertResult3 = [[NSString alloc] initWithFormat: @"%.0f", msTriple];
+    NSString *convertResult5 = [[NSString alloc] initWithFormat: @"%.0f", msFifth];
+    NSString *convertResultDot = [[NSString alloc] initWithFormat: @"%.0f", msDot];
+    NSString *tripleConvert = [[NSString alloc] initWithFormat:@"%.0f", tripleVal];
+    NSString *fiveConvert = [[NSString alloc] initWithFormat:@"%.0f", fiveVal];
     
-    if (tempo == 0 || tempo < 0) {
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tempo cannot be 0"
-                                                          message:@"Please use a number greater than 0"
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
-    }
-    
-    if (tempo > 60000) {
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tempo cannot be greater than 60,000"
-                                                          message:@"Please use a smaller number"
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
-    }
-    
-    // Checks the Note Value as defined in UISegmentController. If value other than 1/4 is selected divide by that value.
-    else {
+    if (tempo > 0 || tempo < 600001){
+        // Checks the Note Value as defined in UISegmentController. If value other than 1/4 is selected calculate that value.
         switch (noteValues.selectedSegmentIndex)
         {
             case 0:
@@ -108,31 +96,43 @@
                 [noteImage2 setImage:[UIImage imageNamed:@"sixtyFourth.png"] forState:UIControlStateNormal];
                 break;
         }
+        calcResult.text = convertResult;
+        calcResult3.text = convertResult3;
+        calcResult5.text = convertResult5;
+        calcResultDot.text = convertResultDot;
+        triplet.text = tripleConvert;
+        fiveTuplet.text = fiveConvert;
+        [dotImage setImage:[UIImage imageNamed:@"dot.png"] forState:UIControlStateNormal];
     }
-    
-    // Used to calculate values for Triplets, Fivetuplets and Dotted notes
-    double msTriple = floor(ms / 3);
-    double msFifth = floor(ms / 5);
-    double msDot = floor(ms * 1.5);
-    double tripleVal = 3;
-    double fiveVal = 5;
-    
-    [tempoTextBox resignFirstResponder];
-    
-    // Convert data to strings & push data to the proper fields
-    NSString *convertResult = [[NSString alloc] initWithFormat: @"%.0f", ms];
-    NSString *convertResult3 = [[NSString alloc] initWithFormat: @"%.0f", msTriple];
-    NSString *convertResult5 = [[NSString alloc] initWithFormat: @"%.0f", msFifth];
-    NSString *convertResultDot = [[NSString alloc] initWithFormat: @"%.0f", msDot];
-    NSString *tripleConvert = [[NSString alloc] initWithFormat:@"%.0f", tripleVal];
-    NSString *fiveConvert = [[NSString alloc] initWithFormat:@"%.0f", fiveVal];
-    calcResult.text = convertResult;
-    calcResult3.text = convertResult3;
-    calcResult5.text = convertResult5;
-    calcResultDot.text = convertResultDot;
-    triplet.text = tripleConvert;
-    fiveTuplet.text = fiveConvert;
-    [dotImage setImage:[UIImage imageNamed:@"dot.png"] forState:UIControlStateNormal];
+    // Display an alert if an unusable tempo is selected.
+    if (tempo < 1 || tempo > 60001) {
+        if (tempo < 1) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tempo cannot be 0"
+                                                              message:@"Please use a number greater than 0"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
+        if (tempo > 60000) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tempo cannot be greater than 60,000"
+                                                              message:@"Please use a smaller number"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
+        calcResult.text = nil;
+        calcResult3.text = nil;
+        calcResult5.text = nil;
+        calcResultDot.text = nil;
+        triplet.text = nil;
+        fiveTuplet.text = nil;
+        tempoTextBox.text = nil;
+        [dotImage setImage:[UIImage imageNamed:@"blank.png"] forState:UIControlStateNormal];
+        [noteImage setImage:[UIImage imageNamed:@"blank.png"] forState:UIControlStateNormal];
+        [noteImage2 setImage:[UIImage imageNamed:@"blank.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)clearFields:(id)sender {
