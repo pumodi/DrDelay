@@ -3,7 +3,7 @@
 //  Dr Delay, PhD
 //
 //  Created by Jeff "ServerGuy" Brice on 11/17/13.
-//  Copyright (c) 2013 Jeff Brice. All rights reserved.
+//  Copyright (c) 2013 Jeffrey Brice. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -30,6 +30,13 @@
 @property (nonatomic, retain) IBOutlet UILabel *triplet;
 @property (nonatomic, retain) IBOutlet UILabel *fiveTuplet;
 @property (nonatomic, retain) IBOutlet UIButton *resetButton;
+@property (nonatomic) double tempo;
+@property (nonatomic) double ms;
+@property (nonatomic) double msTriple;
+@property (nonatomic) double msFifth;
+@property (nonatomic) double msDot;
+@property (nonatomic) double tripleVal;
+@property (nonatomic) double fiveVal;
 
 - (IBAction)tempoConvert:(id)sender;
 - (IBAction)clearFields:(id)sender;

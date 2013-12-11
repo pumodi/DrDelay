@@ -43,7 +43,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="go"/>
                                         <connections>
-                                            <action selector="clearFields:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ejR-UC-jLB"/>
                                             <action selector="textFieldReturn:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="qFP-PH-ToA"/>
                                         </connections>
                                     </textField>
@@ -186,7 +185,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="clearFields:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nq2-zL-yvd"/>
+                                            <action selector="clearFields:" destination="vXZ-lx-hvc" eventType="touchDown" id="qyr-7P-Esp"/>
                                         </connections>
                                     </button>
                                 </subviews>

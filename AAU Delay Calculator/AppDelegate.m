@@ -3,7 +3,7 @@
 //  Dr Delay, PhD
 //
 //  Created by Jeff "ServerGuy" Brice on 11/17/13.
-//  Copyright (c) 2013 Jeff Brice. All rights reserved.
+//  Copyright (c) 2013 Jeffrey Brice. All rights reserved.
 //
 
 #import "AppDelegate.h"

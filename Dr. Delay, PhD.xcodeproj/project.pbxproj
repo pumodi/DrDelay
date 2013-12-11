@@ -21,6 +21,9 @@
 		3545FA951842AF8C00E27190 /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3545FA921842AF8C00E27190 /* 76x76.png */; };
 		3545FA961842AF8C00E27190 /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3545FA931842AF8C00E27190 /* 72x72.png */; };
 		3545FA981842AF9E00E27190 /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3545FA971842AF9E00E27190 /* 152x152.png */; };
+		35606ABE18581D51000ED59F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 35606ABB18581D51000ED59F /* Default.png */; };
+		35606ABF18581D51000ED59F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35606ABC18581D51000ED59F /* Default-568h@2x.png */; };
+		35606AC018581D51000ED59F /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 35606ABD18581D51000ED59F /* Default-568h.png */; };
 		356D1A3718428BB9008626D9 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 356D1A3618428BB9008626D9 /* dot.png */; };
 		35AD1BA018399D49005DE2F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AD1B9F18399D49005DE2F6 /* Foundation.framework */; };
 		35AD1BA218399D49005DE2F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AD1BA118399D49005DE2F6 /* CoreGraphics.framework */; };
@@ -29,7 +32,6 @@
 		35AD1BAC18399D49005DE2F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AD1BAB18399D49005DE2F6 /* main.m */; };
 		35AD1BB018399D49005DE2F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AD1BAF18399D49005DE2F6 /* AppDelegate.m */; };
 		35AD1BB318399D49005DE2F6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35AD1BB118399D49005DE2F6 /* Main_iPhone.storyboard */; };
-		35AD1BB618399D49005DE2F6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35AD1BB418399D49005DE2F6 /* Main_iPad.storyboard */; };
 		35AD1BB918399D49005DE2F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AD1BB818399D49005DE2F6 /* ViewController.m */; };
 		35AD1BBB18399D49005DE2F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35AD1BBA18399D49005DE2F6 /* Images.xcassets */; };
 		35AD1BC218399D4A005DE2F6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AD1BC118399D4A005DE2F6 /* XCTest.framework */; };
@@ -64,6 +66,9 @@
 		3545FA921842AF8C00E27190 /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76x76.png; sourceTree = "<group>"; };
 		3545FA931842AF8C00E27190 /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
 		3545FA971842AF9E00E27190 /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152x152.png; sourceTree = "<group>"; };
+		35606ABB18581D51000ED59F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		35606ABC18581D51000ED59F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		35606ABD18581D51000ED59F /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		356D1A3618428BB9008626D9 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot.png; sourceTree = "<group>"; };
 		35AD1B9C18399D49005DE2F6 /* Dr. Delay, PhD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dr. Delay, PhD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35AD1B9F18399D49005DE2F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,7 +81,6 @@
 		35AD1BAE18399D49005DE2F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35AD1BAF18399D49005DE2F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		35AD1BB218399D49005DE2F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		35AD1BB518399D49005DE2F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		35AD1BB718399D49005DE2F6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		35AD1BB818399D49005DE2F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		35AD1BBA18399D49005DE2F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -147,7 +151,6 @@
 				35AD1BAE18399D49005DE2F6 /* AppDelegate.h */,
 				35AD1BAF18399D49005DE2F6 /* AppDelegate.m */,
 				35AD1BB118399D49005DE2F6 /* Main_iPhone.storyboard */,
-				35AD1BB418399D49005DE2F6 /* Main_iPad.storyboard */,
 				35AD1BB718399D49005DE2F6 /* ViewController.h */,
 				35AD1BB818399D49005DE2F6 /* ViewController.m */,
 				35AD1BBA18399D49005DE2F6 /* Images.xcassets */,
@@ -160,6 +163,9 @@
 		35AD1BA618399D49005DE2F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				35606ABB18581D51000ED59F /* Default.png */,
+				35606ABC18581D51000ED59F /* Default-568h@2x.png */,
+				35606ABD18581D51000ED59F /* Default-568h.png */,
 				3545FA971842AF9E00E27190 /* 152x152.png */,
 				3545FA8D1842AF2400E27190 /* 114x114.png */,
 				3545FA911842AF8C00E27190 /* 144x144.png */,
@@ -283,7 +289,6 @@
 			files = (
 				3545FA981842AF9E00E27190 /* 152x152.png in Resources */,
 				350C0C7018427C9E001E91A0 /* sixteenth.png in Resources */,
-				35AD1BB618399D49005DE2F6 /* Main_iPad.storyboard in Resources */,
 				3545FA961842AF8C00E27190 /* 72x72.png in Resources */,
 				3545FA8E1842AF2400E27190 /* 114x114.png in Resources */,
 				350C0C7218427C9E001E91A0 /* whole.png in Resources */,
@@ -293,9 +298,12 @@
 				3545FA951842AF8C00E27190 /* 76x76.png in Resources */,
 				35AD1BB318399D49005DE2F6 /* Main_iPhone.storyboard in Resources */,
 				350C0C7118427C9E001E91A0 /* quarter.psd in Resources */,
+				35606ABE18581D51000ED59F /* Default.png in Resources */,
 				350C0C7318427C9E001E91A0 /* half.png in Resources */,
+				35606ABF18581D51000ED59F /* Default-568h@2x.png in Resources */,
 				35AD1BAA18399D49005DE2F6 /* InfoPlist.strings in Resources */,
 				356D1A3718428BB9008626D9 /* dot.png in Resources */,
+				35606AC018581D51000ED59F /* Default-568h.png in Resources */,
 				350C0C6F18427C9E001E91A0 /* eighth.png in Resources */,
 				350C0C6E18427C9E001E91A0 /* thirtySecond_.png in Resources */,
 				3545FA941842AF8C00E27190 /* 144x144.png in Resources */,
@@ -357,14 +365,6 @@
 				35AD1BB218399D49005DE2F6 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		35AD1BB418399D49005DE2F6 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35AD1BB518399D49005DE2F6 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		35AD1BCA18399D4A005DE2F6 /* InfoPlist.strings */ = {
@@ -457,7 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AAU Delay Calculator/Dr. Delay, PhD-Prefix.pch";
@@ -475,7 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AAU Delay Calculator/Dr. Delay, PhD-Prefix.pch";
